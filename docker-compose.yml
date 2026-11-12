@@ -5,8 +5,8 @@ services:
     build: .
     image: noghte_server_app:1.0
     container_name: noghte_app
-    # volumes:
-    #   - "./code:/code"
+    volumes:
+      - "./code:/code"
 
     ports:
       - "8000:8000"
