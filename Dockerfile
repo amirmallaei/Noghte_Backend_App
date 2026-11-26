@@ -4,7 +4,14 @@ LABEL maintainer="Amir Mallaei <amirmallaei@gmail.com>"
 
 ENV PYTHONUNBUFFERED=1
 
-RUN apt-get update -y 
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    gcc \
+    python3-dev \
+    libpq-dev \
+    postgresql-client \
+    && rm -rf /var/lib/apt/lists/*
+
+
 RUN pip install --upgrade pip
 
 RUN mkdir /code
